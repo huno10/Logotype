@@ -1,0 +1,15 @@
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 44px;
+    column-gap: 40px;
+    margin: 0 auto;
+    padding: 0 1.25rem 11.3rem;
+    max-width: 1200px;
+}
+
+@media (max-width: 768px) {
+    .list {
+        row-gap: 30px;
+    }
+}

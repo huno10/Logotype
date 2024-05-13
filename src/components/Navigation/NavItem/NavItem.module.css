@@ -1,0 +1,61 @@
+.item {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 0;
+    cursor: pointer;
+}
+
+
+.item:hover .itemImg {
+    transform: rotate(180deg);
+    transition: transform 0.4s ease-in-out;
+}
+
+.name {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 16px;
+    margin-right: 0.25rem;
+}
+
+
+.name:hover {
+    font-weight: 700;
+}
+
+.submenu {
+    position: absolute;
+    top: 56px; 
+    left: 0;
+    padding: 1.25rem;
+    width: 176px;
+    border: 1px solid #E9E9E9;
+    background-color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.item:hover .submenu {
+    visibility: visible;
+    opacity: 1;   
+}
+
+
+
+@media (max-width: 768px) {
+    .item {
+        justify-content: start;
+        padding: 1rem 0;
+        width: 100%;
+        border-bottom: 1px solid #E9E9E9;
+    }
+}
+
+@media (max-width: 550px) {
+    .item:last-child {
+        border: none;
+    }
+}

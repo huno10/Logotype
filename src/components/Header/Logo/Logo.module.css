@@ -1,0 +1,59 @@
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 1.8rem 1.25rem 1.6rem;
+    max-width: 1200px;
+}
+
+.serach__btn {
+    position: absolute;
+    top: 32px;
+    right: 19px;
+    cursor: pointer;
+}
+
+.burgerBtn {
+    position: absolute;
+    left: 17px;
+    top: 36px;
+    display: none;
+    width: 33px;
+}
+
+.inputWrapper {
+    position: absolute;
+    top: 29px;
+    right: 50px;
+    z-index: 10;
+    width: 150px;
+    background-color: #E9E9E9;
+}
+
+.input {
+    padding: 0.4rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 2rem 1.25rem 1.4rem;
+    }
+
+    .logo {
+        height: 24px;
+    }
+
+    .serach__btn {
+        top: 36px;
+    }
+
+    .burgerBtn {
+        display: block;
+    }
+
+    .inputWrapper {
+        top: 32px;
+    }
+
+}

@@ -1,0 +1,28 @@
+.subMenuItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #E9E9E9;
+    
+}
+
+.subMenuItem:first-child {
+    padding: 0 0 0.5rem;
+}
+
+.subMenuItem:last-child {
+    border: none;
+    padding: 0.5rem 0 0;
+}
+
+.subMenuItem:hover span{
+    padding: 0 0 0 0.5rem;
+    color: #969696;
+    cursor: url(../../../../../public/imeges/Cursore.svg), auto;
+}
+
+.subMenuName {
+    font-size: 0.8125rem;
+    line-height: 13px;
+}

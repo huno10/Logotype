@@ -1,0 +1,74 @@
+.container {
+    max-width: calc((100% - 80px) / 3);
+}
+
+.imeges {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.block {
+    margin-bottom: 1rem;
+}
+
+.interest {
+    margin-bottom: 1rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: #EB0028;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.dataInfo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.point {
+    margin: 0.3rem;
+}
+
+.autor {
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.date,
+.views {
+    font-size: 0.75rem;
+    line-height: 12px;
+    color: #9B9B9B;
+}
+
+.text {
+    line-height: 20px;
+    color: #929292;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        max-width: calc(50% - 20px);
+    }
+
+    .text {
+        font-size: 0.875rem;
+    }
+
+}
+
+@media (max-width: 550px) {
+    .container {
+        max-width: 100%;
+    }
+
+    .text {
+        font-size: 0.875rem;
+    }
+}

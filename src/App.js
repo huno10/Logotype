@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import CardList from "./components/CardList/CardList";
+import Header from "./components/Header/Header";
+import Navigation from "./components/Navigation/Navigation";
+import { SearchProvider } from "./hooks/useSearchContext";
+
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false)
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <SearchProvider>
+        <Header isOpen={isOpen} setIsOpen={setIsOpen} />
+        <Navigation isOpen={isOpen} setIsOpen={setIsOpen} />
+        <CardList />
+      </SearchProvider>
+    </>
   );
 }
 
