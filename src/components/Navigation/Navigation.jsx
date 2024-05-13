@@ -18,8 +18,8 @@ function Navigation({ isOpen, setIsOpen }) {
     });
 
     return (
-        <nav className={`${styles.nav} ${isSticky ? `${styles.navSticky} ${styles.stickyTransform}` : ''} ${isOpen ? styles.navActive : ''}`} ref={navRef}>
-            <div className={styles.container}>
+        <nav className={`${styles.nav} ${isSticky ? `${styles.navSticky} ${styles.stickyTransform}` : ''} ${isOpen ? styles.navActive : ''}`} >
+            <div className={styles.container} ref={navRef}>
                 <div className={styles.wrapper}>
                     <img src="./imeges/Logo768.svg" alt="logo" />
                     <img className={styles.navBtn} src="./imeges/CloseBtn.svg" alt="close button" onClick={() => setIsOpen(false)} />
