@@ -1,4 +1,5 @@
 
+import { useMemo } from "react";
 import useGetData from "../../hooks/useGetData";
 import { useSearchContext } from "../../hooks/useSearchContext";
 import { filterDataBySearch } from "../../utils/FilterDataBySearch";
@@ -11,11 +12,11 @@ function CardList() {
     const { searchValue } = useSearchContext();
     const { data, error } = useGetData()
 
+    const filteredData = useMemo(() => filterDataBySearch(data, searchValue), [data, searchValue]);
+
     if (error) {
         return <div>Failed to get data</div>;
     }
-
-    const filteredData = filterDataBySearch(data, searchValue);
 
     return (
         <ul className={styles.list}>

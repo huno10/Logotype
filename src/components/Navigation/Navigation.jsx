@@ -4,28 +4,38 @@ import NavItem from './NavItem/NavItem';
 import useCloseBlock from '../../hooks/useCloseBlock';
 import { useRef } from 'react';
 
-const SCROLL__PIXEL = 340
+const MENU_ITEMS = ['Demos', 'Post', 'Features', 'Categories', 'Shop', 'Buy Now']
 
-function Navigation({ isOpen, setIsOpen }) {
+function Navigation({ isOpen, setIsOpen, headerHeight }) {
     const navRef = useRef(null);
 
+    const scrollPixel = headerHeight + 200
 
-    const isSticky = useSetScroll(SCROLL__PIXEL)
-    const title = ['Demos', 'Post', 'Features', 'Categories', 'Shop', 'Buy Now']
+    const isSticky = useSetScroll(scrollPixel)
 
     useCloseBlock(navRef, () => {
         setIsOpen(false);
     });
 
+    const clsx = [styles.nav]
+
+    if (!isSticky) {
+        clsx.push(styles.stickyTransform)
+    }
+
+    if (isOpen) {
+        clsx.push(styles.navActive)
+    }
+
     return (
-        <nav className={`${styles.nav} ${isSticky ? `${styles.navSticky} ${styles.stickyTransform}` : ''} ${isOpen ? styles.navActive : ''}`} >
+        <nav className={clsx.join(" ")} >
             <div className={styles.container} ref={navRef}>
                 <div className={styles.wrapper}>
                     <img src="./imeges/Logo768.svg" alt="logo" />
                     <img className={styles.navBtn} src="./imeges/CloseBtn.svg" alt="close button" onClick={() => setIsOpen(false)} />
                 </div>
                 <ul className={styles.list}>
-                    {title.map((title) => (
+                    {MENU_ITEMS.map((title) => (
                         <NavItem key={title} title={title} />
                     ))}
                 </ul>

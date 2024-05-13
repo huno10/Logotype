@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const useSetScroll = (scrollPixel) => {
-    const [isSticky, setIsSticky] = useState(false);
+    const [isSticky, setIsSticky] = useState(true);
 
     useEffect(() => {
         const handleScroll = () => {

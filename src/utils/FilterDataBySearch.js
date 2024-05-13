@@ -1,5 +1,5 @@
 export function filterDataBySearch(data, searchValue) {
-    if (!searchValue) {
+    if (!searchValue || !data) {
         return data;
     }
 

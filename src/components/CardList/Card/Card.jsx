@@ -1,25 +1,16 @@
-import { useEffect, useState } from 'react';
 import styles from './Card.module.css'
-import CardInfo from './CardInfo/CardInfo';
+import { useModalContex } from '../../../context/modal-context';
+import { useCallback } from 'react';
 
 function Card({ data }) {
+    const { openModal } = useModalContex()
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
-
-    const openModal = () => {
-        setIsModalOpen(true);
-    };
-
-    const closeModal = () => {
-        setIsModalOpen(prev => !prev);
-    };
-
-    useEffect(() => {
-        console.log('isModalOpen changed:', isModalOpen);
-    }, [isModalOpen]);
+    const onBoxClick = useCallback(() => {
+        openModal({ title: data.title, text: data.text })
+    }, [openModal, data.title, data.text])
 
     return (
-        <li className={styles.container} onClick={openModal}>
+        <li className={styles.container} onClick={onBoxClick}>
             <img className={styles.imeges} src={data.img} srcSet={`${data.img} 800w, ${data.img_2x} 1600w`} alt="imeges" />
             <div className={styles.wrapper}>
                 <div className={styles.block}>
@@ -40,10 +31,9 @@ function Card({ data }) {
                     </div>
                     <p className={styles.text}>{data.text}</p>
                 </div>
-
-                {isModalOpen && <CardInfo cardData={data} onClose={closeModal} />}
             </div>
         </li >
+
     )
 }
 
