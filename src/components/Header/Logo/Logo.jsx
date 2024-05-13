@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './Logo.module.css'
 import { useSearchContext } from '../../../hooks/useSearchContext';
+import useCloseBlock from '../../../hooks/useCloseBlock';
 
 function Logo({ setIsOpen }) {
     const [isInputOpen, setIsInputOpen] = useState(false);
@@ -11,7 +12,7 @@ function Logo({ setIsOpen }) {
     const toggleInput = () => {
         setIsInputOpen(!isInputOpen);
         if (!isInputOpen) {
-            handleInputChange(''); 
+            handleInputChange('');
         }
     };
 
@@ -19,17 +20,9 @@ function Logo({ setIsOpen }) {
         handleInputChange(e.target.value);
     };
 
-    useEffect(() => {
-        const handleOutsideClick = (event) => {
-            if (inputRef.current && !inputRef.current.contains(event.target)) {
-                setIsInputOpen(false);
-            }
-        };
-        document.addEventListener('mousedown', handleOutsideClick);
-        return () => {
-            document.removeEventListener('mousedown', handleOutsideClick);
-        };
-    }, []);
+    useCloseBlock(inputRef, () => {
+        setIsInputOpen(false);
+    });
 
 
     return (
